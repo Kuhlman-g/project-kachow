@@ -4,7 +4,7 @@ Overview:
 PizzaMind is a pizza-review application that enables authenticated users to review frozen pizza brands that they have purchased or owned. 
 
 Setup:
-Ruby Version: 2.7.2
+Ruby Version: 2.7.3
 Rails Version: 5.2.5
 Bundler Version: 2.2.15
 
