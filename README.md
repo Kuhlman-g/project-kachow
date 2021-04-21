@@ -1,7 +1,11 @@
 # README
 
+[![Codeship Status for Kuhlman-g/project-kachow](https://app.codeship.com/projects/d6fad0f0-0ea7-4ed3-ad04-78e0713ff997/status?branch=master)](https://app.codeship.com/projects/442453)
+
+
 Overview: 
 PizzaMind is a pizza-review application that enables authenticated users to review frozen pizza brands that they have purchased or owned. 
+
 
 Setup:
 Ruby Version: 2.7.3
