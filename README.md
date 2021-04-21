@@ -2,30 +2,35 @@
 
 [![Codeship Status for Kuhlman-g/project-kachow](https://app.codeship.com/projects/d6fad0f0-0ea7-4ed3-ad04-78e0713ff997/status?branch=master)](https://app.codeship.com/projects/442453)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Overview: 
+PizzaMind is a pizza-review application that enables authenticated users to review frozen pizza brands that they have purchased or owned. 
 
-* Ruby version
 
-* System dependencies
+Setup:
+Ruby Version: 2.7.3
+Rails Version: 5.2.5
+Bundler Version: 2.2.15
 
-* Configuration
+Getting Started:
 
-* Database creation
+After you fork, clone, or download the repo, execute the following commands to run the application locally:
 
-* Database initialization
+$ bundle install
+$ yarn install
 
-* How to run the test suite
+To build the PostgreSQL database:
 
-* Services (job queues, cache servers, search engines, etc.)
+$ rake db:create
+$ rake db:migrate
 
-* Deployment instructions
+To view the app in development locally at https://localhost:3000/ Run the following commands in separate terminal windows:
 
-## Kachow
+$ rails s
+$ yarn start
 
-* Kachow is a review and fanfiction publishing app/website for Cars in the disney Cars universe
-* Authors: Derrick, Will, Cedric & Greg
-* For Cars by Cars
-*
+In Progress Features:
+
+-Pizza photo gallery
+-Pizza stats
+-Reviews/Comments for Pizzas
