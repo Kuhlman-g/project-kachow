@@ -1,9 +1,16 @@
-<H1>Pizzas</H1>
 
-<ul>
-  <% @pizza_brands.each do |brand| %>
-    <li>
-      <%= brand %>
-    </li>
-  <% end %>
-</ul>
+<% if @pizza_brands.any? %>
+  <div class='cell small-11 text-center'>
+      <h2>Pizza Brands</h2>
+  </div>
+    <% @pizza_brands.each do |brand| %>
+      <div class='cell small-4 pizzaCard'>
+        <div class='card '>
+          <img class='pizzaImage' src="https://target.scene7.com/is/image/Target/GUEST_c0d6a6a1-32b7-4ef5-9300-48563dce322d?wid=325&hei=325&qlt=80&fmt=webp">
+        <div class='card-section text-center'>
+            <%= brand %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+<% end %>
