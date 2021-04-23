@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 const BrandShowContainer = (props) => {
     const [pizzas, setPizzas] = useState([])
+    const [brand, setBrand] = useState({name: ''})
 
     let brandId = props.match.params.id
 
@@ -14,7 +15,8 @@ const BrandShowContainer = (props) => {
 	        throw(error)
 	      }
 	      const parsedPizzas= await response.json()
-	      setPizzas(parsedPizzas)
+	      setPizzas(parsedPizzas.pizzas)
+        setBrand(parsedPizzas.brand)
 	    } catch(err){
 	      console.error(`Error in fetch: ${err.message}`)
 	    }
@@ -24,16 +26,19 @@ const BrandShowContainer = (props) => {
         getPizzas()
     }, [])
 
-    let pizzaTiles = pizzas.map( (pizza) => {
+    const pizzaTiles = pizzas.map( (pizza) => {
       return(
           <li key={pizza.id}>{pizza.product_name}</li>
       )
     })
 
     return(
-      <ul>
+      <div>
+        <h2>{brand.name}</h2>
+        <ul>
           {pizzaTiles}
-      </ul>
+        </ul>
+      </div>
     )
 }
 

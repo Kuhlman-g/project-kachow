@@ -1,10 +1,11 @@
 class Api::V1::BrandsController < ApplicationController
   def index
-    # @pizza_brands = Pizza.brandOnly 
     render json: Brand.all
   end
 
   def show
-    render json: Brand.find(params[:id]).pizzas
+    select_brand = Brand.find(params[:id])
+    render json: {brand: select_brand, pizzas: select_brand.pizzas}
+    #render json: Brand.find(params[:id]).pizzas
   end
 end

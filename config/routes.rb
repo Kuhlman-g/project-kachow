@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "homes#index"
+  root "homes#index"
   devise_for :users
 
   get '/pizzas', to: 'homes#index'
@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :brands, only: [:index, :show]
-      #resources :pizzas, only: [:show]
     end
   end
 end
