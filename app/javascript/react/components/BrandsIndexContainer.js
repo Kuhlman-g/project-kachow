@@ -24,19 +24,23 @@ const BrandsIndexContainer = (props) => {
 
   const brandTiles = brands.map((brand) => {
     return(
-      <li key={brand.id}>
-        {brand.name}
-      </li>
+    <div class='cell small-4 pizzaCard'>
+      <div class='card '>
+        <div class='card-section text-center' key={brand.id}>
+          {brand.name}
+        </div>
+      </div>
+    </div>
     )
   })
 
   return(
-    <div>
+  <div>
+    <div  className='cell small-11 text-center'>
       <h3> Brands: </h3>
-      <ul>
-        {brandTiles}
-      </ul>
     </div>
+        {brandTiles}
+  </div>
   )
 }
 
