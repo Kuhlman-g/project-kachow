@@ -1,4 +1,4 @@
-class Api::V1::PizzasController < ApplicationController
+class Api::V1::BrandsController < ApplicationController
   def index
     # @pizza_brands = Pizza.brandOnly 
     render json: Brand.all

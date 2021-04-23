@@ -1,14 +1,14 @@
 import React from 'react'
-import PizzasIndexContainer from "./PizzasIndexContainer"
-import PizzaShowContainer from "./PizzaShowContainer"
+import BrandsIndexContainer from "./BrandsIndexContainer"
+import BrandShowContainer from "./BrandShowContainer"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/pizzas" component={PizzasIndexContainer}/>
-        <Route exact path="/pizzas/:id" component={PizzaShowContainer}/>
+        <Route exact path="/pizzas" component={BrandsIndexContainer}/>
+        <Route exact path="/pizzas/:id" component={BrandShowContainer}/>
       </Switch>
     </BrowserRouter>
   )}

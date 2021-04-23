@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react"
 
-const PizzasIndexContainer = (props) => {
-  const [pizzas, setPizzas] = useState([])
+const BrandsIndexContainer = (props) => {
+  const [brands, setBrands] = useState([])
 
-  const fetchPizzas = async () => {
-    const response = await fetch("/api/v1/pizzas")
-    const parsedPizzas = await response.json()
-    setPizzas(parsedPizzas)
+  const fetchBrands = async () => {
+    const response = await fetch("/api/v1/brands")
+    const parsedBrands = await response.json()
+    setBrands(parsedBrands)
   }
 
   useEffect(() => {
-    fetchPizzas()
+    fetchBrands()
   }, [])
 
-  let pizzaTiles = pizzas.map((brand) => {
+  let brandTiles = brands.map((brand) => {
     return(
       <li key={brand.id}>
         {brand.name}
@@ -23,10 +23,10 @@ const PizzasIndexContainer = (props) => {
 
   return(
     <div>
-      <h3> Pizzas Index </h3>
-      {pizzaTiles}
+      <h3> Brands Index </h3>
+      {brandTiles}
     </div>
   )
 }
 
-export default PizzasIndexContainer
+export default BrandsIndexContainer
