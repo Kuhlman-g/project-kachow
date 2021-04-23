@@ -1,6 +1,7 @@
 import React from 'react'
 import BrandsIndexContainer from "./BrandsIndexContainer"
 import BrandShowContainer from "./BrandShowContainer"
+import PizzaShowContainer from "./PizzaShowContainer"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 const App = (props) => {
