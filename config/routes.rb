@@ -5,10 +5,13 @@ Rails.application.routes.draw do
   get '/pizzas', to: 'homes#index'
   get '/pizzas/:id', to: 'homes#index'
 
+  get '/pizza/:id' to: 'homes#index'
+
   
   namespace :api do
     namespace :v1 do
       resources :brands, only: [:index, :show]
+      resources :pizzas, only: [:show]
     end
   end
 end

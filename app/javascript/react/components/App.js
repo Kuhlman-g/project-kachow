@@ -9,6 +9,7 @@ const App = (props) => {
       <Switch>
         <Route exact path="/pizzas" component={BrandsIndexContainer}/>
         <Route exact path="/pizzas/:id" component={BrandShowContainer}/>
+        <Route exact path="/pizza/:id" component={PizzaShowContainer}/>
       </Switch>
     </BrowserRouter>
   )}
