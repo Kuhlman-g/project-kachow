@@ -13,10 +13,10 @@ const PizzasIndexContainer = (props) => {
     fetchPizzas()
   }, [])
 
-  let pizzaTiles = pizzas.map((pizza) => {
+  let pizzaTiles = pizzas.map((brand) => {
     return(
-      <li key={pizza.id}>
-        {pizza.brand}
+      <li key={brand.id}>
+        {brand.name}
       </li>
     )
   })
