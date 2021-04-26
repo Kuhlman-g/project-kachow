@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react'
 const PizzaShowContainer = (props) => {
   const [pizza, setPizza] = useState({ 
     product_name: "", 
-    cost: null
+    cost: null,
+    brand: "",
+    brand_id: null
   })
-
-  const [brand, setBrand] = useState({})
      
   let pizzaId = props.match.params.id
 
@@ -19,12 +19,14 @@ const PizzaShowContainer = (props) => {
         throw(error)
       }
       const parsedPizza= await response.json()
-      setPizza(parsedPizza['pizza'])
-      setBrand(parsedPizza['brand'])
+      let new_pizza = parsedPizza.pizza
+      new_pizza.brand = parsedPizza.brand.name
+      new_pizza.brand_id = parsedPizza.brand.id
+      setPizza(new_pizza)
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
     }
-} 
+  } 
 
   useEffect( () => {
     fetchPizza()
@@ -38,7 +40,7 @@ const PizzaShowContainer = (props) => {
   let pizzaTile = (
     <>
       <h2>{pizza.product_name}</h2>
-      <p>Brand: {brand.name}</p>
+      <p>Brand: {pizza.brand}</p>
       <p>{pizza_cost}</p>
     </>
   )

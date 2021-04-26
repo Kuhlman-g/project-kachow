@@ -1,8 +1,9 @@
 import React from 'react'
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+
 import BrandsIndexContainer from "./BrandsIndexContainer"
 import BrandShowContainer from "./BrandShowContainer"
 import PizzaShowContainer from "./PizzaShowContainer"
-import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 const App = (props) => {
   return (
