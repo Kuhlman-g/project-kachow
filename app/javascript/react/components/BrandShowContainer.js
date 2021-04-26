@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import BrandShowTile from './BrandShowTile.js'
 
 const BrandShowContainer = (props) => {
     const [pizzas, setPizzas] = useState([])
@@ -29,13 +30,7 @@ const BrandShowContainer = (props) => {
 
     const pizzaTiles = pizzas.map( (pizza) => {
       return(
-        <div class='cell small-4 pizzaCard'>
-          <div class='card'>
-            <div class='card-section text-center'  key={pizza.id}>
-            <Link to={`/pizza/${pizza.id}`}>{pizza.product_name}</Link>
-            </div>
-          </div>
-        </div>
+        <BrandShowTile name={pizza.product_name} id={pizza.id} key={pizza.id} />
       )
     })
     
