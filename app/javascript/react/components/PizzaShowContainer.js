@@ -5,6 +5,8 @@ const PizzaShowContainer = (props) => {
     product_name: "", 
     cost: null
   })
+
+  const [brand, setBrand] = useState({})
      
   let pizzaId = props.match.params.id
 
@@ -17,7 +19,8 @@ const PizzaShowContainer = (props) => {
         throw(error)
       }
       const parsedPizza= await response.json()
-      setPizza(parsedPizza)
+      setPizza(parsedPizza['pizza'])
+      setBrand(parsedPizza['brand'])
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
     }
@@ -27,11 +30,22 @@ const PizzaShowContainer = (props) => {
     fetchPizza()
   }, [])
 
+  let pizza_cost
+  if(pizza.cost != null) {
+    pizza_cost = `Average cost is: $${pizza.cost}`
+  }
+
+  let pizzaTile = (
+    <>
+      <h2>{pizza.product_name}</h2>
+      <p>Brand: {brand.name}</p>
+      <p>{pizza_cost}</p>
+    </>
+  )
 
   return(
     <div className='single_pizza_show'>
-      <h1>hello single pizza</h1>
-
+      {pizzaTile}
     </div>
   )
 }
