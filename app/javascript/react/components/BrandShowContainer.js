@@ -39,12 +39,12 @@ const BrandShowContainer = (props) => {
     })
     
     return(
-    <div>
+    <>
       <div className='cell small-11 text-center'>
         <h2>{brand.name}</h2>
       </div>
         {pizzaTiles}
-    </div>
+    </>
     )
     }
 export default BrandShowContainer

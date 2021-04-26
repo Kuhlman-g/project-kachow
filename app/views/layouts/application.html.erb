@@ -23,7 +23,7 @@
     </nav>
 
     <div class='grid-container'>
-      <div class='grid-x grid-margin-x align-spaced pizzaContainer'>
+
         <%- flash.each do |key, value| -%>
           <div class="flash flash-<%= key %>">
             <%= value %>
@@ -31,7 +31,6 @@
         <%- end -%>
 
         <%= yield %>
-      </div>
     </div>
 
   <%= javascript_include_tag 'application' %>
