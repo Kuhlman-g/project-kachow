@@ -28,18 +28,23 @@ const BrandShowContainer = (props) => {
 
     const pizzaTiles = pizzas.map( (pizza) => {
       return(
-          <li key={pizza.id}>{pizza.product_name}</li>
+        <div class='cell small-4 pizzaCard'>
+          <div class='card'>
+            <div class='card-section text-center'  key={pizza.id}>
+              {pizza.product_name}
+            </div>
+          </div>
+        </div>
       )
     })
-
+    
     return(
-      <div>
+    <div>
+      <div className='cell small-11 text-center'>
         <h2>{brand.name}</h2>
-        <ul>
-          {pizzaTiles}
-        </ul>
       </div>
+        {pizzaTiles}
+    </div>
     )
-}
-
+    }
 export default BrandShowContainer
