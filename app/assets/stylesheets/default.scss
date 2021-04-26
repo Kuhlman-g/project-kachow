@@ -1,0 +1,26 @@
+.pageBackground {
+  background: #F9C784;
+}
+.pizzaContainer {
+  background: #FAA300;
+  margin-top: 1.5rem;
+  border: 5px solid #ff0101;
+  border-radius: .75rem;
+  padding-bottom: 1rem;
+}
+
+.pizzaCard {
+  background: #FF6201;
+  $card-background: #FF6201;
+  border: 10px, solid, #FF6201;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.card {
+  max-width: 70%;
+  margin: auto;
+  margin-top: 1em;
+  position: relative;
+    
+}
