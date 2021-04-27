@@ -10,10 +10,10 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={BrandsIndexContainer}/>
-        <Route exact path="/pizzas" component={BrandsIndexContainer}/>
-        <Route exact path="/pizzas/:id" component={BrandShowContainer}/>
-        <Route exact path="/pizza/:id" component={PizzaShowContainer}/>
+        <Route exact path="/" component={ BrandsIndexContainer }/>
+        <Route exact path="/brands" component={ BrandsIndexContainer }/>
+        <Route exact path="/brands/:id" component={ BrandShowContainer }/>
+        <Route exact path="/pizza/:id" component={ PizzaShowContainer }/>
       </Switch>
     </BrowserRouter>
   )}

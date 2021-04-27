@@ -7,7 +7,4 @@ class Api::V1::BrandsController < ApplicationController
     select_brand = Brand.find(params[:id])
     render json: {brand: select_brand, pizzas: select_brand.pizzas}
   end
-
-  def new 
-  end
 end

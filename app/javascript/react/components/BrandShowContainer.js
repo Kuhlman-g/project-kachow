@@ -6,7 +6,7 @@ const BrandShowContainer = (props) => {
   const [pizzas, setPizzas] = useState([])
   const [brand, setBrand] = useState({name: ''})
 
-  let brandId = props.match.params.id
+  const brandId = props.match.params.id
 
   const getPizzas = async () => {
     try {
@@ -28,20 +28,19 @@ const BrandShowContainer = (props) => {
       getPizzas()
   }, [])
 
-
-    const pizzaTiles = pizzas.map( (pizza) => {
-      return(
-        <BrandShowTile name={pizza.product_name} id={pizza.id} key={pizza.id} />
-      )
-    })
-    
+  const pizzaTiles = pizzas.map( (pizza) => {
     return(
-      <>
-        <div className='cell small-11 text-center'>
-          <h2>{brand.name}</h2>
-        </div>
-        {pizzaTiles}
-      </>
+      <BrandShowTile name={pizza.product_name} id={pizza.id} key={pizza.id} />
+    )
+  })
+  
+  return(
+    <>
+      <div className='cell small-11 text-center'>
+        <h2>{brand.name}</h2>
+      </div>
+      {pizzaTiles}
+    </>
   )
 }
 
