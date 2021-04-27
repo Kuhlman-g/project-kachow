@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import PizzaTile from './pizzaTile.js'
+
 const PizzaShowContainer = (props) => {
   const [pizza, setPizza] = useState({ 
     product_name: "", 
@@ -47,7 +49,7 @@ const PizzaShowContainer = (props) => {
 
   return(
     <div className='single_pizza_show'>
-      {pizzaTile}
+      <PizzaTile pizza={pizza}/>
     </div>
   )
 }
