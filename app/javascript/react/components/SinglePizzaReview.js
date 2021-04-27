@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react"
 
 const SinglePizzaReview = (props) => {
-    const [reviewData, setReviewData] = useState({
-        name: "",
-        rating: "",
-        body: ""
-    })
-
+  const [reviewData, setReviewData] = useState({
+    name: "",
+    rating: "",
+    body: "",
+		pizza: props.pizzaId
+	})
     const handleChange = (event) => {
         setReviewData({
             ...reviewData,

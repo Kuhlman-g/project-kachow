@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
-
+import SinglePizzaReview from './SinglePizzaReview.js'
 import PizzaTile from './pizzaTile.js'
+import ReviewTile from './ReviewTile.js'
 
 const PizzaShowContainer = (props) => {
   const [pizza, setPizza] = useState({ 
     product_name: "", 
     cost: null,
     brand: "",
-    brand_id: null
+    brand_id: null,
+    reviews: []
   })
      
   let pizzaId = props.match.params.id
@@ -24,6 +26,7 @@ const PizzaShowContainer = (props) => {
       let new_pizza = parsedPizza.pizza
       new_pizza.brand = parsedPizza.brand.name
       new_pizza.brand_id = parsedPizza.brand.id
+      new_pizza.reviews = parsedPizza.reviews
       setPizza(new_pizza)
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
@@ -34,23 +37,45 @@ const PizzaShowContainer = (props) => {
     fetchPizza()
   }, [])
 
+  const addNewReview = async (formPayload) => {
+    const response = await fetch("/api/v1/pizzas/", {
+      credentials: "same-origin",
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formPayload),
+    })
+    // const parsedNewReview = await response.json()
+    // let newReview = reviewData.concat(ParsedNewReview)
+    // setReviews(newReview)
+  }
+
   let pizza_cost
   if(pizza.cost != null) {
     pizza_cost = `Average cost is: $${pizza.cost}`
   }
 
-  let pizzaTile = (
-    <>
-      <h2>{pizza.product_name}</h2>
-      <p>Brand: {pizza.brand}</p>
-      <p>{pizza_cost}</p>
-    </>
-  )
+  let reviewArray = pizza.reviews.map(review => {
+    return(
+      <ReviewTile name={review.name} body={review.body} rating={review.rating} key={review.id} />
+    )
+  })
+
 
   return(
-    <div className='single_pizza_show'>
-      <PizzaTile pizza={pizza}/>
-    </div>
+      <>
+      <div className='single_pizza_show'>
+        <PizzaTile pizza={pizza}/>
+      </div>
+        <div>
+          <SinglePizzaReview addItem={addNewReview} pizzaId={pizzaId} />
+        </div>
+        <div>
+          {reviewArray}
+        </div>
+      </>
   )
 }
 
