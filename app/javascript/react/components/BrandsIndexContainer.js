@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+import BrandTile from "./BrandTile.js"
+
 
 const BrandsIndexContainer = (props) => {
   const [brands, setBrands] = useState([])
@@ -24,13 +27,7 @@ const BrandsIndexContainer = (props) => {
 
   const brandTiles = brands.map((brand) => {
     return(
-    <div class='cell small-4 pizzaCard'>
-      <div class='card'>
-        <div class='card-section text-center' key={brand.id}>
-          {brand.name}
-        </div>
-      </div>
-    </div>
+      <BrandTile key={brand.id} id={brand.id} name={brand.name} />
     )
   })
 
