@@ -7,7 +7,7 @@ RSpec.describe Api::V1:: PizzasController, type: :controller do
 
   describe "Get#show" do
     it "should display all of the pizzas attributes/facts for that pizza" do
-      get :show, params: { id: pizza1.id }
+      get :show, params: {rid: pizza1.id }
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
