@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import BrandTile from "./BrandTile.js"
 
+import BrandTile from "./BrandTile.js"
 
 const BrandsIndexContainer = (props) => {
   const [brands, setBrands] = useState([])
@@ -36,7 +36,7 @@ const BrandsIndexContainer = (props) => {
     <div  className='cell small-11 text-center'>
       <h3> Brands: </h3>
     </div>
-        {brandTiles}
+    {brandTiles}
   </>
   )
 }
