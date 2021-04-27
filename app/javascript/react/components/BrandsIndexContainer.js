@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 
 import BrandTile from "./BrandTile.js"
 
-
 const BrandsIndexContainer = (props) => {
   const [brands, setBrands] = useState([])
 
