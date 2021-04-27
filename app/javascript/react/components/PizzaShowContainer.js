@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import PizzaTile from './pizzaTile.js'
+import PizzaTile from './PizzaTile.js'
 
 const PizzaShowContainer = (props) => {
   const [pizza, setPizza] = useState({ 
@@ -21,7 +21,7 @@ const PizzaShowContainer = (props) => {
         throw(error)
       }
       const parsedPizza= await response.json()
-      let new_pizza = parsedPizza.pizza
+      const new_pizza = parsedPizza.pizza
       new_pizza.brand = parsedPizza.brand.name
       new_pizza.brand_id = parsedPizza.brand.id
       setPizza(new_pizza)
@@ -33,19 +33,6 @@ const PizzaShowContainer = (props) => {
   useEffect( () => {
     fetchPizza()
   }, [])
-
-  let pizza_cost
-  if(pizza.cost != null) {
-    pizza_cost = `Average cost is: $${pizza.cost}`
-  }
-
-  let pizzaTile = (
-    <>
-      <h2>{pizza.product_name}</h2>
-      <p>Brand: {pizza.brand}</p>
-      <p>{pizza_cost}</p>
-    </>
-  )
 
   return(
     <div className='single_pizza_show'>
