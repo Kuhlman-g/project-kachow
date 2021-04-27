@@ -12,3 +12,7 @@ pizza1 = Pizza.create(brand: brand1, product_name: "Crispy Supreme", cost: 15.00
 pizza2 = Pizza.create(brand: brand1, product_name: "Uncured Pepperoni", cost: 13.74) 
 pizza3 = Pizza.create(brand: brand2, product_name: "Rising Crust", cost: 5.00)
 pizza4 = Pizza.create(brand: brand3, product_name: "Three Cheese", cost: 2.99)
+pizza5 = Pizza.create(brand: brand2, product_name: "Veggie Supreme", cost: 3.99)
+
+review1 = Review.create(pizza: pizza1, name: "Amazing Slices", rating: 89, body: "This is a dope pizza. You should try it!")
+review2 = Review.create(pizza: pizza3, name: "Three Cheese", rating: 50, body: "The toppings will literally fall off and the crust is kind of bland like... It isn't terrible but there are better options. At least there's no high fructose corn syrup and it's cheap!")

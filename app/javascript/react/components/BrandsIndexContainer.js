@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 const BrandsIndexContainer = (props) => {
   const [brands, setBrands] = useState([])
@@ -27,7 +28,7 @@ const BrandsIndexContainer = (props) => {
     <div class='cell small-4 pizzaCard'>
       <div class='card '>
         <div class='card-section text-center' key={brand.id}>
-          {brand.name}
+          <Link to={`/pizzas/${brand.id}`}>{brand.name}</Link>
         </div>
       </div>
     </div>

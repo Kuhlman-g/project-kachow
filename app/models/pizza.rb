@@ -2,6 +2,7 @@ class Pizza < ApplicationRecord
   validates :product_name, presence: true
   validates :cost, numericality: true, allow_blank: true
   belongs_to :brand
+  has_many :reviews
   
   def self.brandOnly
     allPizzas = Pizza.all

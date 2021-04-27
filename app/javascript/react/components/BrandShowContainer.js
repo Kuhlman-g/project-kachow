@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const BrandShowContainer = (props) => {
     const [pizzas, setPizzas] = useState([])
@@ -31,7 +32,7 @@ const BrandShowContainer = (props) => {
         <div class='cell small-4 pizzaCard'>
           <div class='card'>
             <div class='card-section text-center'  key={pizza.id}>
-              {pizza.product_name}
+              <Link to={`/pizza/${pizza.id}`}>{pizza.product_name}</Link>
             </div>
           </div>
         </div>
