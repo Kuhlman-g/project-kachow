@@ -36,6 +36,10 @@ const BrandShowContainer = (props) => {
         <BrandShowTile name={pizza.product_name} id={pizza.id} key={pizza.id} />
       )
     })
+
+    const addPizza = (pizza) => {
+      console.log('this is where we create a POST request for adding a new pizza to the data base.')
+    }
     
     return(
       <>
@@ -43,7 +47,7 @@ const BrandShowContainer = (props) => {
           <h2>{brand.name}</h2>
         </div>
         {pizzaTiles}
-        <PizzaForm brand_name={brand.name} brand_id={brand.id}/>
+        <PizzaForm brand_name={brand.name} brand_id={brand.id} addPizza={addPizza}/>
       </>
   )
 }
