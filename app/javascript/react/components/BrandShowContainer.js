@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+
 import BrandShowTile from './BrandShowTile.js'
+import PizzaForm from './PizzaForm.js'
 
 const BrandShowContainer = (props) => {
   const [pizzas, setPizzas] = useState([])
@@ -41,6 +43,7 @@ const BrandShowContainer = (props) => {
           <h2>{brand.name}</h2>
         </div>
         {pizzaTiles}
+        <PizzaForm brand_name={brand.name} brand_id={brand.id}/>
       </>
   )
 }
