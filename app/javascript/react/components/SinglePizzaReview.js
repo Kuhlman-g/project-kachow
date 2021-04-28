@@ -5,7 +5,7 @@ const SinglePizzaReview = (props) => {
     name: "",
     rating: "",
     body: "",
-		pizza: props.pizzaId
+		pizza_id: props.pizzaId
 	})
     const handleChange = (event) => {
       setReviewData({
