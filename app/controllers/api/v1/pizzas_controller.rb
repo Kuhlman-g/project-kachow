@@ -17,18 +17,11 @@ class Api::V1::PizzasController < ApplicationController
     pizza = review.pizza
 
     if review.save
-      flash[:notice] = "Review added successfully."
+      flash.now[:notice] = "Review added successfully."
+      render json: pizza.reviews
     else
       flash.now[:error] = "#{review.errors.full_messages.to_sentence}"
     end
-    redirect "/pizzas/[:id]"
   end
-
-
-  # private
-
-  # def review_params
-  #     params.require(:review).permit(:name, :rating, :body, :pizza)
-  # end
   
 end

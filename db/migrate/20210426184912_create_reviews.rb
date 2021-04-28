@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :rating, null: false
       t.text :body, null: false
-      t.belongs_to :pizza, null: false
+      t.belongs_to :pizza
 
       t.timestamps null: false
     end

@@ -30,6 +30,7 @@ const PizzaShowContainer = (props) => {
       new_pizza.brand_id = parsedPizza.brand.id
       new_pizza.reviews = parsedPizza.reviews
       setPizza(new_pizza)
+      console.log("You just hit the fetchPizza fuction")
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
     }
@@ -50,19 +51,10 @@ const PizzaShowContainer = (props) => {
       body: JSON.stringify(formPayload),
     })
     const parsedNewReview = await response.json()
-    // const newReview = pizza
-    debugger
-    const new_pizza = parsedNewReview.pizza
-    new_pizza.brand = parsedNewReview.brand.name
-    new_pizza.brand_id = parsedNewReview.brand.id
-    new_pizza.reviews = parsedNewReview.reviews
-    setPizza(new_pizza)
-    //setReviews(newReview)
-  }
-
-  let pizza_cost
-  if(pizza.cost != null) {
-    pizza_cost = `Average cost is: $${pizza.cost}`
+    setPizza({
+      ...pizza,
+      reviews: parsedNewReview
+    })
   }
 
   let reviewArray = pizza.reviews.map(review => {

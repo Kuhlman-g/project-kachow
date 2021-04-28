@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ReviewTile = (props) => {
-  debugger
   return(
     <div className="callout cell large-12">
       <li>{props.name}</li>
