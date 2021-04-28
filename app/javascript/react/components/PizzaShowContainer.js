@@ -30,7 +30,6 @@ const PizzaShowContainer = (props) => {
       new_pizza.brand_id = parsedPizza.brand.id
       new_pizza.reviews = parsedPizza.reviews
       setPizza(new_pizza)
-      console.log("You just hit the fetchPizza fuction")
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
     }
