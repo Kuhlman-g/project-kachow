@@ -7,7 +7,7 @@ class Api::V1::ReviewsController < ApplicationController
 
     if review.save
       errors = "Review added successfully."
-      render json: {reviews: pizza.reviews, errors: errors}
+      render json: {reviews: pizza.reviews, errors: [errors]}
     else
       render json: {errors: review.errors.full_messages}
     end
