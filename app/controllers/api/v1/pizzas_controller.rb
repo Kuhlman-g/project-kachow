@@ -6,31 +6,4 @@ class Api::V1::PizzasController < ApplicationController
     render json: {pizza: selected_pizza, brand: selected_pizza.brand, reviews: selected_pizza.reviews} 
   end
 
-  # def create
-  #   review = Review.new(review_params)
-  #   pizza = review.pizza
-
-  #   if review.save
-  #     errors = "Review added successfully."
-  #     render json: pizza.reviews
-  #   else
-  #     render json: review.errors
-  #   end
-  # end
-
-  # private
-
-  # def review_params
-  #   params.require(:review).permit(:name, :rating, :body, :pizza)
-  # end
-  
-  protected
-
-  def authorize_user
-    if !user_signed_in?
-      raise ActionController::RoutingError.new("Not Found")
-      render json: {error: ["You need to be signed in first"]}
-    end
-  end
-  
 end
