@@ -67,19 +67,12 @@ const PizzaShowContainer = (props) => {
     )
   })
 
-  let errorList = errors.map( error => {
-    return(
-      <li>{error}</li>
-    )
-  })
-
   return(
       <>
       <div className='single_pizza_show'>
         <PizzaTile pizza={pizza}/>
       </div>
         <div>
-          {errorList}
           <SinglePizzaReview addItem={addNewReview} pizzaId={pizzaId} errors={errors}/>
         </div>
         <div>
