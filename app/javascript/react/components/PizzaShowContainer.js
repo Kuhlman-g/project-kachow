@@ -4,7 +4,6 @@ import SinglePizzaReview from './SinglePizzaReview.js'
 import PizzaTile from './PizzaTile.js'
 import ReviewTile from './ReviewTile.js'
 
-
 const PizzaShowContainer = (props) => {
   const [pizza, setPizza] = useState({ 
     product_name: "", 
@@ -40,8 +39,7 @@ const PizzaShowContainer = (props) => {
   }, [])
 
   const addNewReview = async (formPayload) => {
-    try { 
-      const response = await fetch("/api/v1/pizzas/", {
+    const response = await fetch("/api/v1/reviews/", {
       credentials: "same-origin",
       method: "POST",
       headers: {
@@ -56,12 +54,13 @@ const PizzaShowContainer = (props) => {
       throw(error)
     }
     const parsedNewReview = await response.json()
-    setPizza({
-      ...pizza,
-      reviews: parsedNewReview
-    })
-    } catch(err){
-      console.error(`Error in fetch: ${err.message}`)
+    if(parsedNewReview.errors[0] === "Review added successfully."){
+      setPizza({
+        ...pizza,
+        reviews: parsedNewReview.reviews
+      })
+    } else {
+      console.log(parsedNewReview.errors)
     }
   }
 
