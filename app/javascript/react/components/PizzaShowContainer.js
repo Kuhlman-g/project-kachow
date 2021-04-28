@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+
 import SinglePizzaReview from './SinglePizzaReview.js'
-import PizzaTile from './pizzaTile.js'
+import PizzaTile from './PizzaTile.js'
 import ReviewTile from './ReviewTile.js'
+
 
 const PizzaShowContainer = (props) => {
   const [pizza, setPizza] = useState({ 
@@ -23,7 +25,7 @@ const PizzaShowContainer = (props) => {
         throw(error)
       }
       const parsedPizza= await response.json()
-      let new_pizza = parsedPizza.pizza
+      const new_pizza = parsedPizza.pizza
       new_pizza.brand = parsedPizza.brand.name
       new_pizza.brand_id = parsedPizza.brand.id
       new_pizza.reviews = parsedPizza.reviews
@@ -47,9 +49,15 @@ const PizzaShowContainer = (props) => {
       },
       body: JSON.stringify(formPayload),
     })
-    // const parsedNewReview = await response.json()
-    // let newReview = reviewData.concat(ParsedNewReview)
-    // setReviews(newReview)
+    const parsedNewReview = await response.json()
+    // const newReview = pizza
+    debugger
+    const new_pizza = parsedNewReview.pizza
+    new_pizza.brand = parsedNewReview.brand.name
+    new_pizza.brand_id = parsedNewReview.brand.id
+    new_pizza.reviews = parsedNewReview.reviews
+    setPizza(new_pizza)
+    //setReviews(newReview)
   }
 
   let pizza_cost
@@ -62,7 +70,6 @@ const PizzaShowContainer = (props) => {
       <ReviewTile name={review.name} body={review.body} rating={review.rating} key={review.id} />
     )
   })
-
 
   return(
       <>

@@ -21,7 +21,7 @@ class Api::V1::PizzasController < ApplicationController
     else
       flash.now[:error] = "#{review.errors.full_messages.to_sentence}"
     end
-    redirect "/pizza/[:id]"
+    redirect "/pizzas/[:id]"
   end
 
 
