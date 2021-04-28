@@ -35,10 +35,12 @@ const BrandShowContainer = (props) => {
   
   return(
     <>
-      <div className='cell small-11 text-center'>
-        <h2>{brand.name}</h2>
+      <div className='grid-x grid-margin-x align-spaced pizzaContainer'>
+        <div className='cell small-11 text-center'>
+          <h2>{brand.name}</h2>
+        </div>
+        {pizzaTiles}
       </div>
-      {pizzaTiles}
     </>
   )
 }

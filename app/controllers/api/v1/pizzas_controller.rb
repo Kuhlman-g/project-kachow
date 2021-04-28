@@ -1,5 +1,7 @@
 class Api::V1::PizzasController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
+  before_action :authorize_user, except: [:index, :show]
+
   def show
     selected_pizza = Pizza.find(params[:id])
     render json: {pizza: selected_pizza, brand: selected_pizza.brand, reviews: selected_pizza.reviews} 
@@ -21,6 +23,15 @@ class Api::V1::PizzasController < ApplicationController
       render json: pizza.reviews
     else
       flash.now[:error] = "#{review.errors.full_messages.to_sentence}"
+    end
+  end
+  
+  protected
+
+  def authorize_user
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("Not Found")
+      render json: {error: ["You need to be signed in first"]}
     end
   end
   

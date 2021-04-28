@@ -40,7 +40,8 @@ const PizzaShowContainer = (props) => {
   }, [])
 
   const addNewReview = async (formPayload) => {
-    const response = await fetch("/api/v1/pizzas/", {
+    try { 
+      const response = await fetch("/api/v1/pizzas/", {
       credentials: "same-origin",
       method: "POST",
       headers: {
@@ -49,11 +50,19 @@ const PizzaShowContainer = (props) => {
       },
       body: JSON.stringify(formPayload),
     })
+    if (!response) {
+      const errorMessage = `${response.status} (${response.statusTest})`
+      const error = new Error(errorMessage)
+      throw(error)
+    }
     const parsedNewReview = await response.json()
     setPizza({
       ...pizza,
       reviews: parsedNewReview
     })
+    } catch(err){
+      console.error(`Error in fetch: ${err.message}`)
+    }
   }
 
   let reviewArray = pizza.reviews.map(review => {
