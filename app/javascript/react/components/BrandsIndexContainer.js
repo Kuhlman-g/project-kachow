@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 
 import BrandTile from "./BrandTile.js"
 
-
 const BrandsIndexContainer = (props) => {
   const [brands, setBrands] = useState([])
 
@@ -33,12 +32,12 @@ const BrandsIndexContainer = (props) => {
   })
 
   return(
-  <>
+  <div className='grid-x grid-margin-x align-spaced pizzaContainer'>
     <div  className='cell small-11 text-center'>
       <h3> Brands: </h3>
     </div>
     {brandTiles}
-  </>
+  </div>
   )
 }
 

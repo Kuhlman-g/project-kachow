@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 import BrandShowTile from './BrandShowTile.js'
 import PizzaForm from './PizzaForm.js'
@@ -8,7 +7,7 @@ const BrandShowContainer = (props) => {
   const [pizzas, setPizzas] = useState([])
   const [brand, setBrand] = useState({name: ''})
 
-  let brandId = props.match.params.id
+  const brandId = props.match.params.id
 
   const getPizzas = async () => {
     try {
