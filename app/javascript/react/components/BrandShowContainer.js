@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react'
 import BrandShowTile from './BrandShowTile.js'
 
 const BrandShowContainer = (props) => {
-  const [pizzas, setPizzas] = useState([])
-  const [brand, setBrand] = useState({name: ''})
+  const [brand, setBrand] = useState({
+    id: null,
+    name: '',
+    pizzas: []
+  })
 
   const brandId = props.match.params.id
 
@@ -16,7 +19,6 @@ const BrandShowContainer = (props) => {
         throw(error)
       }
       const parsedPizzas= await response.json()
-      setPizzas(parsedPizzas.pizzas)
       setBrand(parsedPizzas.brand)
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
@@ -27,7 +29,7 @@ const BrandShowContainer = (props) => {
       getPizzas()
   }, [])
 
-  const pizzaTiles = pizzas.map( (pizza) => {
+  const pizzaTiles = brand.pizzas.map( (pizza) => {
     return(
       <BrandShowTile name={pizza.product_name} id={pizza.id} key={pizza.id} />
     )
