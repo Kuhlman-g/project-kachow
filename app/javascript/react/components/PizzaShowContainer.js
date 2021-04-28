@@ -12,6 +12,7 @@ const PizzaShowContainer = (props) => {
     brand_id: null,
     reviews: []
   })
+  const [errors, setErrors] = useState([])
      
   let pizzaId = props.match.params.id
 
@@ -54,8 +55,9 @@ const PizzaShowContainer = (props) => {
         ...pizza,
         reviews: parsedNewReview.reviews
       })
+      setErrors([])
     } else {
-      console.log(parsedNewReview.errors)
+      setErrors(parsedNewReview.errors)
     }
   }
 
@@ -65,13 +67,20 @@ const PizzaShowContainer = (props) => {
     )
   })
 
+  let errorList = errors.map( error => {
+    return(
+      <li>{error}</li>
+    )
+  })
+
   return(
       <>
       <div className='single_pizza_show'>
         <PizzaTile pizza={pizza}/>
       </div>
         <div>
-          <SinglePizzaReview addItem={addNewReview} pizzaId={pizzaId} />
+          {errorList}
+          <SinglePizzaReview addItem={addNewReview} pizzaId={pizzaId} errors={errors}/>
         </div>
         <div>
           {reviewArray}

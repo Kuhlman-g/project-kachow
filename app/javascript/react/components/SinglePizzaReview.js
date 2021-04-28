@@ -27,12 +27,19 @@ const SinglePizzaReview = (props) => {
       body: ""
     })
   }
+
+  let errorList = props.errors.map( error => {
+    return(
+      <li>{error}</li>
+    )
+  })
   
   return(
     <div>
       <h1>Leave a Review!</h1>
       <form onSubmit={formSubmitCallback}>
         <div>
+          {errorList}
           <label htmlFor="name">Review Name:
               <input 
                 id="name" 
