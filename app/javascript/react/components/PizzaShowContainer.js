@@ -50,7 +50,7 @@ const PizzaShowContainer = (props) => {
       },
       body: JSON.stringify(formPayload),
     })
-    if (!response) {
+    if (!response.ok) {
       const errorMessage = `${response.status} (${response.statusTest})`
       const error = new Error(errorMessage)
       throw(error)
