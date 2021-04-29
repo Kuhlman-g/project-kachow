@@ -34,10 +34,18 @@ const PizzaForm = (props) => {
     })
   }
 
+  const errorList = props.errors.map( error => {
+      return(<li>{error}</li>)
+    }
+  );
+
   return(
     <div className='cell small-11 grid-x grid-margin-x align-spaced'>
       <div className='cell small-10'>
         <h3>Add a pizza for {props.brand_name}:</h3>
+      </div>
+      <div>
+        {errorList}
       </div>
       <form onSubmit={formSubmitCallback}>
         <div className='cell small-10 medium-5'>
@@ -53,7 +61,7 @@ const PizzaForm = (props) => {
         </div>
 
         <div className='cell small-10 medium-5'>
-          <label htmlFor="cost">Average cost:
+          <label htmlFor="cost">Average cost (optional):
             <input 
               id='cost:'
               name='cost'

@@ -9,6 +9,7 @@ const BrandShowContainer = (props) => {
     name: '',
     pizzas: []
   })
+  const [errors, setErrors] = useState([])
 
   const brandId = props.match.params.id
 
@@ -55,7 +56,7 @@ const BrandShowContainer = (props) => {
         pizzas: parsedNewPizza.pizzas
       })
     } else {
-      console.log('You have errors bud')
+      setErrors(parsedNewPizza.errors)
     }
   }
     
@@ -66,7 +67,7 @@ const BrandShowContainer = (props) => {
           <h2>{brand.name}</h2>
         </div>
         {pizzaTiles}
-        <PizzaForm brand_name={brand.name} brand_id={brand.id} addPizza={addPizza}/>
+        <PizzaForm brand_name={brand.name} brand_id={brand.id} addPizza={addPizza} errors={errors}/>
       </div>
     </>
   )
