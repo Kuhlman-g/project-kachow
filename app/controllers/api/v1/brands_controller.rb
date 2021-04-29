@@ -7,4 +7,5 @@ class Api::V1::BrandsController < ApplicationController
     select_brand = Brand.find(params[:id])
     render json: select_brand, serializer: BrandSerializer
   end
+
 end
