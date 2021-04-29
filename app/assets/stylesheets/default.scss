@@ -22,5 +22,34 @@
   margin: auto;
   margin-top: 1em;
   position: relative;
-    
+}
+
+.user_photo {
+  max-height: 3rem;
+}
+
+.reviewTitle{
+  text-decoration: underline;
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.reviewBody{
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.reviewCard{
+  background: #e57c04;
+  border: 5px solid #d3d3d3;
+  border-radius: .75rem;
+}
+
+.userStyle{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.ratingStyle{
+  color: #04E57C;
 }

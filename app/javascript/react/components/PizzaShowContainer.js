@@ -11,7 +11,7 @@ const PizzaShowContainer = (props) => {
     brand: "",
     brand_id: null,
     reviews: [],
-    id: null
+    id: null,
   })
   const [errors, setErrors] = useState([])
      
@@ -29,6 +29,7 @@ const PizzaShowContainer = (props) => {
       const new_pizza = parsedPizza.pizza
       new_pizza.brand_id = parsedPizza.pizza.brand.id
       new_pizza.brand = parsedPizza.pizza.brand.name
+      new_pizza.users = parsedPizza.pizza.users
       setPizza(new_pizza)
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
@@ -55,7 +56,7 @@ const PizzaShowContainer = (props) => {
       throw(error)
     }
     const parsedNewReview = await response.json()
-    if(parsedNewReview.errors[0] === "Review added successfully."){
+    if(!parsedNewReview.errors){
       setPizza({
         ...pizza,
         reviews: parsedNewReview.reviews
@@ -68,7 +69,7 @@ const PizzaShowContainer = (props) => {
 
   let reviewArray = pizza.reviews.map(review => {
     return(
-      <ReviewTile name={review.name} body={review.body} rating={review.rating} key={review.id} />
+      <ReviewTile name={review.name} body={review.body} rating={review.rating} user_photo={review.profile_photo} user_email={review.user_email} key={review.id}/>
     )
   })
 

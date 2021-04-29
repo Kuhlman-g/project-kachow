@@ -4,11 +4,12 @@ class Api::V1::ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
+    review.user = current_user
     pizza = review.pizza
 
     if review.save
       errors = "Review added successfully."
-      render json: {reviews: pizza.reviews, errors: [errors]}
+      render json: pizza.reviews, each_serializer: ReviewSerializer
     else
       render json: {errors: review.errors.full_messages}
     end

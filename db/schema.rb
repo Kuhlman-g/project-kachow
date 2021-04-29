@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 2021_04_28_204448) do
     t.string "rating", null: false
     t.text "body", null: false
     t.bigint "pizza_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pizza_id"], name: "index_reviews_on_pizza_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
