@@ -32,14 +32,14 @@ const BrandShowContainer = (props) => {
   }, [])
 
 
-  const pizzaTiles = pizzas.map( (pizza) => {
+  const pizzaTiles = brand.pizzas.map( (pizza) => {
     return(
       <BrandShowTile name={pizza.product_name} id={pizza.id} key={pizza.id} />
     )
   })
 
   const addPizza = async (formPayload) => {
-    const response = await fetch("/api/v1/brands/", {
+    const response = await fetch("/api/v1/pizzas/", {
       credentials: "same-origin",
       method: "POST",
       headers: {
@@ -49,8 +49,14 @@ const BrandShowContainer = (props) => {
       body: JSON.stringify(formPayload),
     })
     const parsedNewPizza = await response.json()
-
-    setPizzas(parsedNewPizza)
+    if(parsedNewPizza.errors[0] === 'Pizza added succesfully.') {
+      setBrand({
+        ...brand,
+        pizzas: parsedNewPizza.pizzas
+      })
+    } else {
+      console.log('You have errors bud')
+    }
   }
     
   return(

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :brands, only: [:index, :show]
-      resources :pizzas, only: [:show, :new]
+      resources :pizzas, only: [:show, :new, :create]
       resources :reviews, only: [:create]
     end
   end

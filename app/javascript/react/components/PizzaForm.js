@@ -1,12 +1,10 @@
-// Form for adding new pizza to a branch. A user can add this. 
-
-import React, { useState } from "react";
+import React, { useState, } from "react";
 
 const PizzaForm = (props) => {
   const [newPizza, setNewPizza] = useState({
     product_name: "",
     cost: "",
-    brand_id: props.brand_id
+    brand_id: null
   })
 
   const handleChange = (event) => {
@@ -19,6 +17,11 @@ const PizzaForm = (props) => {
 
   const formSubmitCallback = (event) => {
     event.preventDefault()
+
+    const tempPizza = newPizza
+    tempPizza.brand_id = props.brand_id
+    setNewPizza(tempPizza)
+
     props.addPizza(newPizza)
     handleClearForm()
   }
@@ -27,7 +30,7 @@ const PizzaForm = (props) => {
     setNewPizza({
       product_name: "",
       cost: "",
-      brand_id: props.brand_id
+      brand_id: null
     })
   }
 
