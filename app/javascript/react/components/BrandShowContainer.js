@@ -36,17 +36,30 @@ const BrandShowContainer = (props) => {
       )
     })
 
-    const addPizza = (pizza) => {
-      console.log('this is where we create a POST request for adding a new pizza to the data base.')
+    const addPizza = async (formPayload) => {
+      const response = await fetch("/api/v1/brands/", {
+        credentials: "same-origin",
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formPayload),
+      })
+      const parsedNewPizza = await response.json()
+
+      setPizzas(parsedNewPizza)
     }
     
     return(
       <>
-        <div className='cell small-11 text-center'>
-          <h2>{brand.name}</h2>
+        <div className='grid-x grid-margin-x align-spaced pizzaContainer'>
+          <div className='cell small-11 text-center'>
+            <h2>{brand.name}</h2>
+          </div>
+          {pizzaTiles}
+          <PizzaForm brand_name={brand.name} brand_id={brand.id} addPizza={addPizza}/>
         </div>
-        {pizzaTiles}
-        <PizzaForm brand_name={brand.name} brand_id={brand.id} addPizza={addPizza}/>
       </>
   )
 }
