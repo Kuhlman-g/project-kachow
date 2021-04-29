@@ -15,7 +15,7 @@ const BrandsIndexContainer = (props) => {
         throw(error)
       }
       const parsedBrands = await response.json()
-      setBrands(parsedBrands)
+      setBrands(parsedBrands.brands)
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
     }
