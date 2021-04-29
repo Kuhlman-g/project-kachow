@@ -62,7 +62,7 @@ const BrandShowContainer = (props) => {
     
   return(
     <>
-      <div className='grid-x grid-margin-x align_spaced pizzaContainer'>
+      <div className='grid-x grid-margin-x align-spaced pizzaContainer'>
         <div className='cell small-11 text-center'>
           <h2>{brand.name}</h2>
         </div>
