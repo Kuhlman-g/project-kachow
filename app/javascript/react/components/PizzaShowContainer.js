@@ -10,7 +10,8 @@ const PizzaShowContainer = (props) => {
     cost: null,
     brand: "",
     brand_id: null,
-    reviews: []
+    reviews: [],
+    id: null
   })
   const [errors, setErrors] = useState([])
      
@@ -26,9 +27,8 @@ const PizzaShowContainer = (props) => {
       }
       const parsedPizza= await response.json()
       const new_pizza = parsedPizza.pizza
-      new_pizza.brand = parsedPizza.brand.name
-      new_pizza.brand_id = parsedPizza.brand.id
-      new_pizza.reviews = parsedPizza.reviews
+      new_pizza.brand_id = parsedPizza.pizza.brand.id
+      new_pizza.brand = parsedPizza.pizza.brand.name
       setPizza(new_pizza)
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)

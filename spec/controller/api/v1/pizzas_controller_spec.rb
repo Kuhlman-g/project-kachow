@@ -16,8 +16,8 @@ RSpec.describe Api::V1:: PizzasController, type: :controller do
       expect(returned_json['pizza']['product_name']).to eq(pizza1.product_name)
       expect(returned_json['pizza']['cost']).to eq(pizza1.cost)
 
-      expect(returned_json['brand']['name']).to eq(pizza1.brand.name)
-      expect(returned_json['brand']['id']).to eq(brand1.id)
+      expect(returned_json['pizza']['brand']['name']).to eq(pizza1.brand.name)
+      expect(returned_json['pizza']['brand']['id']).to eq(brand1.id)
     end
   end
 end
