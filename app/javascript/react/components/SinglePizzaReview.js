@@ -16,6 +16,11 @@ const SinglePizzaReview = (props) => {
 
   const formSubmitCallback = (event) =>{
     event.preventDefault()
+
+    const tempReview = reviewData
+    tempReview.pizza_id = props.pizzaId
+    setReviewData(tempReview)
+
     props.addItem(reviewData)
     handleClearForm()
   }
