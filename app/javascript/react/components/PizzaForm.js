@@ -1,4 +1,4 @@
-import React, { useState, } from "react";
+import React, { useState } from "react";
 
 const PizzaForm = (props) => {
   const [newPizza, setNewPizza] = useState({
