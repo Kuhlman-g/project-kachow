@@ -40,8 +40,8 @@ const PizzaForm = (props) => {
   );
 
   return(
-    <div className='cell small-11 grid-x grid-margin-x align-spaced'>
-      <div className='cell small-10'>
+    <div className='cell small-11 grid-x grid-margin-x align-spaced pizza_form'>
+      <div className='cell small-12 pizza_form_header'>
         <h3>Add a pizza for {props.brand_name}:</h3>
       </div>
       <div>
