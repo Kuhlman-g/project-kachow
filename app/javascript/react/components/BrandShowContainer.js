@@ -51,7 +51,6 @@ const BrandShowContainer = (props) => {
         body: JSON.stringify(formPayload),
         })
         const parsedNewPizza = await response.json()
-        debugger
         if(!parsedNewPizza.errors) {
           setBrand({
             ...brand,
