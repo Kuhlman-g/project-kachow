@@ -20,7 +20,8 @@ const PizzaShowContainer = (props) => {
   const fetchPizza = async () => {
     try {
       const response = await fetch(`/api/v1/brands/${props.match.params.brand_id}/pizzas/${pizzaId}`)
-      if (!response){
+      if (!response.ok){
+
         const errorMessage = `${response.status} (${response.statusTest})`
         const error = new Error(errorMessage)
         throw(error)
@@ -49,6 +50,11 @@ const PizzaShowContainer = (props) => {
       },
       body: JSON.stringify(formPayload),
     })
+    if (!response.ok) {
+      const errorMessage = `${response.status} (${response.statusTest})`
+      const error = new Error(errorMessage)
+      throw(error)
+    }
     const parsedNewReview = await response.json()
     if(parsedNewReview.errors[0] === "Review added successfully."){
       setPizza({
