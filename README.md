@@ -4,7 +4,7 @@
 
 
 Overview: 
-PizzaMind is a pizza-review application that enables authenticated users to review frozen pizza brands that they have purchased or owned. 
+PizzaMind is a pizza-review application that enables authenticated users to review frozen pizza brands that they have purchased or owned. "If time won't suffice grab a slice on ice."
 
 
 Setup:

@@ -65,3 +65,34 @@
   border: 5px solid #ff0101;
   border-radius: .75rem;
 }
+
+nav.top-bar {
+  height: 100px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.card-section a {
+  color: black;
+  font-weight: 500;
+  font-style: italic;
+}
+.card-section a:hover {
+  color: white;
+}
+
+a {
+  height: 100%;
+  width: auto;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.slogan {
+  color: black;
+  font-weight: 350;
+  font-style: italic;
+}
