@@ -65,10 +65,6 @@ const BrandShowContainer = (props) => {
   }
     
   return(
-<<<<<<< HEAD
-=======
-
->>>>>>> f82525bb4ace90eacc1e8ddcf292978f212bac75
     <div className='grid-x grid-margin align-spaced pizzaContainer'>
       <div className='cell small-11 text-center'>
         <h2>{brand.name}</h2>
