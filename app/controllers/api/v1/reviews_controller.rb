@@ -1,4 +1,8 @@
 class Api::V1::ReviewsController < ApplicationController
+<<<<<<< HEAD
+=======
+  before_action :authenticate_user
+>>>>>>> 9402dc0245c59d2b942de505efb3d9df2cb41c62
 
   def create
     review = Review.new(review_params)
