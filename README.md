@@ -6,6 +6,8 @@
 Overview: 
 PizzaMind is a pizza-review application that enables authenticated users to review frozen pizza brands that they have purchased or owned. "If time won't suffice grab a slice on ice."
 
+Website: https://fathomless-sierra-63806.herokuapp.com/
+
 
 Setup:
 Ruby Version: 2.7.3
@@ -21,8 +23,9 @@ $ yarn install
 
 To build the PostgreSQL database:
 
-$ rake db:create
-$ rake db:migrate
+$ bundle exec rake db:create
+$ bundle exec rake db:migrate
+$ bundle exec rake db:seed
 
 To view the app in development locally at https://localhost:3000/ Run the following commands in separate terminal windows:
 
@@ -32,5 +35,5 @@ $ yarn start
 In Progress Features:
 
 -Pizza photo gallery
--Pizza stats
--Reviews/Comments for Pizzas
+-Update error handeling for forms 
+-Update error handeling for user sign up
