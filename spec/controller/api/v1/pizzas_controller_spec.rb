@@ -16,8 +16,34 @@ RSpec.describe Api::V1:: PizzasController, type: :controller do
       expect(returned_json['pizza']['product_name']).to eq(pizza1.product_name)
       expect(returned_json['pizza']['cost']).to eq(pizza1.cost)
 
-      expect(returned_json['brand']['name']).to eq(pizza1.brand.name)
-      expect(returned_json['brand']['id']).to eq(brand1.id)
+      expect(returned_json['pizza']['brand']['name']).to eq(pizza1.brand.name)
+      expect(returned_json['pizza']['brand']['id']).to eq(brand1.id)
+    end
+  end
+
+  describe "POST#create" do
+    it "creates a new pizza for that brand" do 
+      post_json ={ 
+        pizza: {
+          product_name: "Sausage and Herb",
+          cost: 3.58,
+          brand_id: brand1.id
+        }
+      }
+
+      prev_count = Pizza.count
+      post(:create, params: post_json, format: :json)
+      returned_json = JSON.parse(response.body)
+
+      expect(Pizza.count).to eq(prev_count + 1)
+
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq("application/json")
+
+      expect(returned_json).to be_kind_of(Hash)
+      expect(returned_json['pizzas']).to be_kind_of(Array)
+      expect(returned_json['pizzas'][1]['product_name']).to eq('Sausage and Herb')
+      expect(returned_json['pizzas'][1]['cost']).to eq 3.58
     end
   end
 end

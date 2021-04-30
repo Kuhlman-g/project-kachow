@@ -5,7 +5,7 @@ const SinglePizzaReview = (props) => {
     name: "",
     rating: "",
     body: "",
-		pizza: props.pizzaId
+		pizza_id: props.pizzaId
 	})
     const handleChange = (event) => {
       setReviewData({
@@ -16,6 +16,11 @@ const SinglePizzaReview = (props) => {
 
   const formSubmitCallback = (event) =>{
     event.preventDefault()
+
+    const tempReview = reviewData
+    tempReview.pizza_id = props.pizzaId
+    setReviewData(tempReview)
+
     props.addItem(reviewData)
     handleClearForm()
   }
@@ -27,12 +32,19 @@ const SinglePizzaReview = (props) => {
       body: ""
     })
   }
+
+  let errorList = props.errors.map( error => {
+    return(
+      <li>{error}</li>
+    )
+  })
   
   return(
     <div>
       <h1>Leave a Review!</h1>
       <form onSubmit={formSubmitCallback}>
         <div>
+          {errorList}
           <label htmlFor="name">Review Name:
               <input 
                 id="name" 

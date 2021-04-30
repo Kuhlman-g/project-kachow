@@ -6,4 +6,6 @@ class Review < ApplicationRecord
   
   has_many :votes
   has_many :votants, through: :vote
+
+  belongs_to :user
 end
