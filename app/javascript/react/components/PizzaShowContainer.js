@@ -20,7 +20,12 @@ const PizzaShowContainer = (props) => {
   const fetchPizza = async () => {
     try {
       const response = await fetch(`/api/v1/brands/${props.match.params.brand_id}/pizzas/${pizzaId}`)
+<<<<<<< HEAD
       if (!response){
+=======
+      if (!response.ok){
+
+>>>>>>> f82525bb4ace90eacc1e8ddcf292978f212bac75
         const errorMessage = `${response.status} (${response.statusTest})`
         const error = new Error(errorMessage)
         throw(error)
