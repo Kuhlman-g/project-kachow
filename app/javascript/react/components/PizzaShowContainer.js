@@ -20,7 +20,7 @@ const PizzaShowContainer = (props) => {
   const fetchPizza = async () => {
     try {
       const response = await fetch(`/api/v1/pizzas/${pizzaId}`)
-      if (!response){
+      if (!response.ok){
         const errorMessage = `${response.status} (${response.statusTest})`
         const error = new Error(errorMessage)
         throw(error)
@@ -49,7 +49,7 @@ const PizzaShowContainer = (props) => {
       },
       body: JSON.stringify(formPayload),
     })
-    if (!response) {
+    if (!response.ok) {
       const errorMessage = `${response.status} (${response.statusTest})`
       const error = new Error(errorMessage)
       throw(error)
