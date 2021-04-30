@@ -19,8 +19,9 @@ const PizzaShowContainer = (props) => {
 
   const fetchPizza = async () => {
     try {
-      const response = await fetch(`/api/v1/pizzas/${pizzaId}`)
-      if (!response){
+      const response = await fetch(`/api/v1/brands/${props.match.params.brand_id}/pizzas/${pizzaId}`)
+      if (!response.ok){
+
         const errorMessage = `${response.status} (${response.statusTest})`
         const error = new Error(errorMessage)
         throw(error)
@@ -41,7 +42,7 @@ const PizzaShowContainer = (props) => {
   }, [])
 
   const addNewReview = async (formPayload) => {
-    const response = await fetch("/api/v1/reviews/", {
+    const response = await fetch(`/api/v1/reviews/`, {
       credentials: "same-origin",
       method: "POST",
       headers: {
@@ -50,7 +51,7 @@ const PizzaShowContainer = (props) => {
       },
       body: JSON.stringify(formPayload),
     })
-    if (!response) {
+    if (!response.ok) {
       const errorMessage = `${response.status} (${response.statusTest})`
       const error = new Error(errorMessage)
       throw(error)
