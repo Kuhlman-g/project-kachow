@@ -1,13 +1,13 @@
 require "rails_helper"
 
-RSpec.describe Api::V1:: PizzasController, type: :controller do
+RSpec.describe Api::V1::PizzasController, type: :controller do
   let!(:brand1) { Brand.create(name: "Newman's Own") }
 
   let!(:pizza1) { Pizza.create!(brand: brand1, product_name: "Crispy Supreme", cost: 15.00) }
 
   describe "Get#show" do
     it "should display all of the pizzas attributes/facts for that pizza" do
-      get :show, params: {id: pizza1.id }
+      get :show, params: { id: pizza1.id, brand_id: brand1.id }
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
@@ -28,7 +28,8 @@ RSpec.describe Api::V1:: PizzasController, type: :controller do
           product_name: "Sausage and Herb",
           cost: 3.58,
           brand_id: brand1.id
-        }
+        },
+        brand_id: brand1.id
       }
 
       prev_count = Pizza.count
