@@ -3,4 +3,7 @@ class Review < ApplicationRecord
   validates :rating, presence: true
   validates :body, presence: true
   belongs_to :pizza
+  
+  has_many :votes
+  has_many :votants, through: :vote
 end
