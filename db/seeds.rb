@@ -6,6 +6,7 @@ brand1 = Brand.create(name: "Newman's Own")
 brand2 = Brand.create(name: "DiGiorno")
 brand3 = Brand.create(name: "Ellio's")
 brand4 = Brand.create(name: "Amy's")
+brand5 = Brand.create(name: "Red Barron")
 
 
 
