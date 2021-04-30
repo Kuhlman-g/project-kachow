@@ -12,6 +12,7 @@ const PizzaShowContainer = (props) => {
     brand_id: null,
     reviews: [],
     id: null,
+    votes: [[]]
   })
   const [errors, setErrors] = useState([])
      
@@ -66,10 +67,10 @@ const PizzaShowContainer = (props) => {
       setErrors(parsedNewReview.errors)
     }
   }
-
-  let reviewArray = pizza.reviews.map(review => {
+  
+  let reviewArray = pizza.reviews.map((review, index) => {
     return(
-      <ReviewTile name={review.name} body={review.body} rating={review.rating} user_photo={review.profile_photo} user_email={review.user_email} key={review.id}/>
+      <ReviewTile name={review.name} body={review.body} rating={review.rating} user_photo={review.profile_photo} votes={pizza.votes[index]} user_email={review.user_email} key={review.id}/>
     )
   })
 
