@@ -10,4 +10,5 @@ class ReviewSerializer < ActiveModel::Serializer
   end
 
   belongs_to :user
+  has_many :votes
 end

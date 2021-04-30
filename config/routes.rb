@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         resources :pizzas, only: [:show, :create]
       end
       resources :reviews, only: [:create]
+      resources :votes, only: [:create]
     end
   end
 end
