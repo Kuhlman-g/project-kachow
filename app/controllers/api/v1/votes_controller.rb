@@ -6,7 +6,7 @@ class VotesController < ApplicationController
       review = vote.review
       
       if vote.save
-        render json: review, serializer:
+        render json: review, serializer: ReviewSerializer
       else 
         render json: {errors: review.errors.full_messages}
       end
@@ -17,6 +17,6 @@ class VotesController < ApplicationController
     def vote_params
        params.require(:vote).permit(:user_id, :review_id, :vote_type)
     end
-  end
+  end 
 
  
