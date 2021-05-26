@@ -1,3 +1,5 @@
+@import 'settings';
+
 .pageBackground {
   background: #F9C784;
 }
@@ -108,4 +110,32 @@ a {
   border-color: #E57C04;
   border-radius: 0.75rem;
   background-color: #FF6201;
+}
+
+$translucent-form-overlay-max-width: 1000px;
+
+.translucent-form-overlay {
+  max-width: $translucent-form-overlay-max-width;
+  width: 100%;
+  background-color: rgba(54, 54, 54, 0.8);
+  padding: 20px;
+  color: white;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  // workaround 6.3.0 bug
+  .columns.row {
+    display: block;
+  }
+
+  h3, label {
+    color: white;
+  }
+  input, select {
+    color: $dark-gray;
+  }
+  input::placeholder {
+    color: $dark-gray;
+  }
 }
