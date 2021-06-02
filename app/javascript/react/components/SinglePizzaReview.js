@@ -76,7 +76,7 @@ const SinglePizzaReview = (props) => {
             /> 
           </label>
 
-          <input type="submit" value="Submit Review" className="btn" />
+          <input type="submit" value="Submit Review" className="button" />
         </div>
       </form>
     </div>

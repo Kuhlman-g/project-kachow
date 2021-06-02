@@ -74,7 +74,7 @@ const PizzaForm = (props) => {
           </label>
         </div>
         
-        <input type="submit" value="Submit Pizza" className="btn" />
+        <input type="submit" value="Submit Pizza" className="button" />
       </form>
     </div>
   )

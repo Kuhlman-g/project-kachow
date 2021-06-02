@@ -69,8 +69,8 @@ const ReviewTile = (props) => {
             <p className="reviewBody"> {props.body}</p>
             <ul className="ratingStyle">Pizza Rating: {props.rating}</ul>
             <h6 className="leftAlign">Votes:{vote.vote_type} </h6>
-            <input type="submit" value="Upvote" className="btn" onClick={onClickUpvote}/>
-            <input type="submit" value="Downvote" className="btn" onClick={onClickDownvote}/>
+            <input type="submit" value="Upvote" className="button" onClick={onClickUpvote}/>
+            <input type="submit" value="Downvote" className="button1" onClick={onClickDownvote}/>
         </div>
       </div>
     </div>
