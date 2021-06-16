@@ -40,7 +40,7 @@ const SinglePizzaReview = (props) => {
   })
   
   return(
-    <div>
+    <div class="translucent-form-overlay">
       <h1>Leave a Review!</h1>
       <form onSubmit={formSubmitCallback}>
         <div>
@@ -76,7 +76,7 @@ const SinglePizzaReview = (props) => {
             /> 
           </label>
 
-          <input type="submit" value="Submit Review" className="btn" />
+          <input type="submit" value="Submit Review" className="button" />
         </div>
       </form>
     </div>
