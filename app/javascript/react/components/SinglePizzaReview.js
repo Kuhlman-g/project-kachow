@@ -70,7 +70,8 @@ const SinglePizzaReview = (props) => {
           <label htmlFor="body">Review Details
             <textarea 
               id="body" 
-              name="body"	                
+              name="body"
+              rows="3"	                
               value= {reviewData.body}
               onChange={handleChange}
             /> 
