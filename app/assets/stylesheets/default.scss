@@ -6,7 +6,7 @@
 .pizzaContainer {
   background: #FAA300;
   margin-top: 1.5rem;
-  border: 5px solid #ff0101;
+  border: 5px solid #E57C04;
   border-radius: .75rem;
   padding-bottom: 1rem;
 }
@@ -159,5 +159,30 @@ $translucent-form-overlay-max-width: 1000px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+.button3 {
+  background-color: #F9C784;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.LogLink {
+    margin: 0;
+    padding: 10px 10px;
+    font-size: 25px;
+    line-height: 30px;
+    display: inline-block;
+    color: #ffd87b;
+    font-style: bold;
+      :hover {
+        font-weight: bolder;
+        color: white
+    }
 }
 
