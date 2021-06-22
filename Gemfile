@@ -56,3 +56,4 @@ gem 'devise'
 gem 'foundation-rails', '~> 6.5'
 gem 'webpacker', '~> 3.3'
 gem "active_model_serializers"
+gem "fog-aws"

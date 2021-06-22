@@ -21,7 +21,7 @@ const BrandShowContainer = (props) => {
         const error = new Error(errorMessage)
         throw(error)
       }
-      const parsedPizzas= await response.json()
+      const parsedPizzas = await response.json()
       setBrand(parsedPizzas.brand)
     } catch(err){
       console.error(`Error in fetch: ${err.message}`)
