@@ -10,7 +10,7 @@ class Api::V1::ReviewsController < ApplicationController
       errors = "Review added successfully."
       render json: pizza.reviews, each_serializer: ReviewSerializer
     else
-      render json: {errors: review.errors.full_messages}
+      render json: { errors: review.errors.full_messages }
     end
   end
   

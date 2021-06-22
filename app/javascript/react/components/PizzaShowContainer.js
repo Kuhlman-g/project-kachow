@@ -37,7 +37,7 @@ const PizzaShowContainer = (props) => {
     }
   } 
 
-  useEffect( () => {
+useEffect( () => {
     fetchPizza()
   }, [])
 
