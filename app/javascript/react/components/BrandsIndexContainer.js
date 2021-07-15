@@ -34,7 +34,7 @@ const BrandsIndexContainer = (props) => {
   return(
   <div className='grid-x grid-margin-x align-spaced pizzaContainer'>
     <div  className='cell small-11 text-center'>
-      <h3> Brands: </h3>
+      <h3> Select a Brand </h3>
     </div>
     {brandTiles}
   </div>

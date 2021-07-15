@@ -49,7 +49,7 @@ const PizzaForm = (props) => {
       </div>
       <form onSubmit={formSubmitCallback}>
         <div className='cell small-10 medium-5'>
-          <label htmlFor="product_name">Pizza:
+          <label htmlFor="product_name">Pizza name:
             <input 
               id='product_name:'
               name='product_name'
